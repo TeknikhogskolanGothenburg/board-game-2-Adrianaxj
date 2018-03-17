@@ -1,0 +1,33 @@
+﻿@model TicTacToe.Models.GameBoardViewModel
+
+@if(Model.currentPlayer == Model.player)
+{
+    <text>It's your turn</text>
+}
+else
+{
+    <text>It's NOT your turn!</text>
+}
+<br />
+@for(int i = 0; i < 9; i++)
+{
+    if (Model.squares[i].player == 1)
+    {
+        <text>X</text>
+    }
+    else if (Model.squares[i].player == 2)
+    {
+        <text>O</text>
+    }
+    else
+    {
+        @Html.ActionLink(i.ToString(), "MakeMove", new { id = i, player = Model.player })
+    }
+
+    if(i == 2 || i == 5)
+    {
+        <br />
+    }
+}
+
+@Html.ActionLink("Leave Game", "LeaveGame", new { id = Model.player} )

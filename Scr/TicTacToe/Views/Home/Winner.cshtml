@@ -1,0 +1,14 @@
+﻿@model int?
+
+@if(Model != null)
+{ 
+    if (Model == 1)
+    {
+        <text>Congratulation player one</text>
+    }
+    else if(Model == 2)
+    {
+        <text>Congratulation player two</text>
+    }
+    @Html.ActionLink("Reset game", "Reset");
+}
